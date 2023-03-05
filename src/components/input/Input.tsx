@@ -1,16 +1,54 @@
 import React, {useEffect, useState} from 'react';
 import {Text, TextInput, View} from 'react-native';
+import {TextInputProps} from 'react-native/types';
 import tw from '../../plugin/tailwind';
 
-type InputProps = {
+enum TextContentType {
+  'none',
+  'URL',
+  'addressCity',
+  'addressCityAndState',
+  'addressState',
+  'countryName',
+  'creditCardNumber',
+  'emailAddress',
+  'familyName',
+  'fullStreetAddress',
+  'givenName',
+  'jobTitle',
+  'location',
+  'middleName',
+  'name',
+  'namePrefix',
+  'nameSuffix',
+  'nickname',
+  'organizationName',
+  'postalCode',
+  'streetAddressLine1',
+  'streetAddressLine2',
+  'sublocality',
+  'telephoneNumber',
+  'username',
+  'password',
+}
+
+type InputProps = TextInputProps & {
   label: string;
   placeholder?: string;
+  isError?: boolean;
+  onChangeText?: (value: string) => any;
 };
 
-export const Input = ({label, placeholder}: InputProps) => {
+export const Input = ({
+  label,
+  placeholder,
+  isError,
+  onChangeText,
+  ...props
+}: InputProps) => {
   const [innerPlaceholder, setInnerPlaceholder] = useState(placeholder || '');
   const [value, setValue] = useState('');
-  const debouncedValue = useDebounce(value, 200);
+  const debouncedValue = useDebounce(value, 100);
 
   useEffect(() => {
     value ? setInnerPlaceholder('') : setInnerPlaceholder(placeholder || '');
@@ -22,11 +60,15 @@ export const Input = ({label, placeholder}: InputProps) => {
       <TextInput
         value={value}
         placeholder={placeholder}
+        {...props}
         style={tw`px-5 py-6 ${
           innerPlaceholder ? 'font-c-normal' : 'font-c-medium'
-        } text-lg border border-[#EEEEEE] text-dark-500 rounded-lg`}
+        } text-lg border ${
+          isError ? 'border-red-500' : 'border-[#EEEEEE]'
+        } text-dark-500 rounded-lg`}
         onChangeText={text => {
           setValue(text);
+          onChangeText && onChangeText(text);
         }}
       />
     </View>

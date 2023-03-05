@@ -5,11 +5,13 @@ import tw from '../../plugin/tailwind';
 type ButtonProps = {
   title: string;
   classes?: string;
+  onPress?: () => any;
 };
 
-export const PrimaryButton = ({title, classes}: ButtonProps) => {
+export const PrimaryButton = ({title, classes, onPress}: ButtonProps) => {
   return (
     <Pressable
+      onPress={onPress}
       style={tw`${[
         'px-[75px] py-[25px] bg-primary-400 rounded-full items-center justify-center mx-auto',
         classes,
