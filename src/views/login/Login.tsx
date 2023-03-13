@@ -15,12 +15,15 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label('Password'),
 });
 
-export const Login = () => {
+export const Login = ({navigation}: any) => {
   return (
     <AuthorizeLayout>
       <Formik
         initialValues={{email: '', password: ''}}
-        onSubmit={values => console.log(values)}
+        onSubmit={values => {
+          console.log(values);
+          navigation.navigate("Home");
+        }}
         validationSchema={validationSchema}>
         {({handleChange, handleSubmit, errors}) => (
           <>
@@ -31,6 +34,8 @@ export const Login = () => {
                   label="E-mail"
                   placeholder="Your email or phone"
                   onChangeText={handleChange('email')}
+                  textContentType="emailAddress"
+                  autoCapitalize="none"
                   isError={!!errors.email}
                 />
                 {errors.email && (
