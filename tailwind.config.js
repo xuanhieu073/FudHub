@@ -12,6 +12,15 @@ module.exports = {
         'c-extralight': ['Poppins-ExtraLight'],
         'c-thin': ['Poppins-Thin'],
       },
+      fontSize: {
+        xs: [12, 19],
+        sm: [15, 24],
+        base: [16, 26],
+        lg: [18, 29],
+        xl: [24, 30],
+        '2xl': [30, 38],
+        '3xl': [36, 44],
+      },
       colors: {
         primary: {
           100: '#FED2C7',
@@ -33,15 +42,6 @@ module.exports = {
           400: '#9A9FAE',
         },
       },
-    },
-    fontSize: {
-      xs: [12, 19],
-      sm: [15, 24],
-      base: [16, 26],
-      lg: [18, 29],
-      xl: [24, 30],
-      '2xl': [30, 38],
-      '3xl': [36, 44],
     },
   },
   plugins: [],

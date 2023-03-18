@@ -10,7 +10,7 @@ type AuthorizeLayoutProps = {
 
 export const AuthorizeLayout = ({children}: AuthorizeLayoutProps) => {
   return (
-    <ScrollView>
+    <ScrollView style={tw`bg-white`}>
       <Header />
       <View style={tw`mx-6`}>{children}</View>
       <View style={tw`flex gap-y-4 pb-7 px-6`}>

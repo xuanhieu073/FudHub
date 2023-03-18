@@ -1,24 +1,27 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import tw from '../../plugin/tailwind';
 
 type CategoryItemMdProps = {
   isActive: boolean;
   CategoryName: string;
   imageCategory: any;
+  onPress?: (e: any) => any;
 };
 
 function CategoryItemMd({
   isActive,
   CategoryName,
   imageCategory,
+  onPress,
 }: CategoryItemMdProps) {
   return (
-    <View
+    <Pressable
+      onPress={() => onPress!(CategoryName)}
       style={tw.style(
         'rounded-full px-1 pt-1 pb-5 items-center overflow-hidden',
         {
-          'bg-red-400': isActive,
+          'bg-primary-400': isActive,
           'bg-white': !isActive,
         },
         {
@@ -51,7 +54,7 @@ function CategoryItemMd({
         })}>
         {CategoryName || 'CatName'}
       </Text>
-    </View>
+    </Pressable>
   );
 }
 
