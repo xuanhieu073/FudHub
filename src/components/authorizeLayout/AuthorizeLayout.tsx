@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
 import {Header, LightButton} from '..';
-import {images} from '../../assets';
+import {icons, images} from '../../assets';
 import tw from '../../plugin/tailwind';
 
 type AuthorizeLayoutProps = {
@@ -22,8 +22,8 @@ export const AuthorizeLayout = ({children}: AuthorizeLayoutProps) => {
           <View style={tw`h-[1px] flex-1 bg-[#B3B3B3]`}></View>
         </View>
         <View style={tw`flex flex-row justify-between`}>
-          <LightButton title="FACEBOOK" iconSrc={images.icon.facebook} />
-          <LightButton title="GOOGLE" iconSrc={images.icon.google} />
+          <LightButton title="FACEBOOK" iconSrc={icons.facebook} />
+          <LightButton title="GOOGLE" iconSrc={icons.google} />
         </View>
       </View>
     </ScrollView>

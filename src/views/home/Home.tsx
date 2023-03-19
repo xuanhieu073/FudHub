@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {Image} from 'react-native';
 import {Cart, Favorites, Landing, MyOders, Notifications} from '..';
-import {images} from '../../assets';
+import {icons, images} from '../../assets';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
@@ -16,9 +16,7 @@ const TabNavigator = () => (
       component={Landing}
       options={{
         tabBarIcon: ({focused}) => (
-          <Image
-            source={focused ? images.icon.browsing : images.icon.browsingGray}
-          />
+          <Image source={focused ? icons.browsing : icons.browsingGray} />
         ),
       }}
     />
@@ -27,7 +25,7 @@ const TabNavigator = () => (
       component={Cart}
       options={{
         tabBarIcon: ({focused}) => (
-          <Image source={focused ? images.icon.cart : images.icon.cartGray} />
+          <Image source={focused ? icons.cart : icons.cartGray} />
         ),
       }}
     />
@@ -36,7 +34,7 @@ const TabNavigator = () => (
       component={Favorites}
       options={{
         tabBarIcon: ({focused}) => (
-          <Image source={focused ? images.icon.heart : images.icon.heartGray} />
+          <Image source={focused ? icons.heart : icons.heartGray} />
         ),
       }}
     />
@@ -45,9 +43,7 @@ const TabNavigator = () => (
       component={Notifications}
       options={{
         tabBarIcon: ({focused}) => (
-          <Image
-            source={focused ? images.icon.orders : images.icon.ordersGray}
-          />
+          <Image source={focused ? icons.orders : icons.ordersGray} />
         ),
       }}
     />

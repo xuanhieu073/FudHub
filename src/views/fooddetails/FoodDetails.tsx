@@ -1,6 +1,13 @@
 import {memo, useCallback, useState} from 'react';
-import {Image, Pressable, ScrollView, Text, View} from 'react-native';
-import {images} from '../../assets';
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
+import {icons, images} from '../../assets';
 import {LinkButton, RadioButton} from '../../components';
 import tw from '../../plugin/tailwind';
 
@@ -45,65 +52,69 @@ export const FoodDetails = () => {
   };
 
   return (
-    <ScrollView style={tw`px-6 pt-7 pb-8`}>
-      <Image
-        source={images.food.default}
-        style={tw`w-full h-[206px] rounded-[10px] mb-5`}
-      />
-      <Text style={tw`font-c-semibold text-[28px] leading-[32px] mb-3`}>
-        Ground Beef Tacos
-      </Text>
-      <View style={tw`flex flex-row gap-x-2 mb-4`}>
-        <Text>⭐️</Text>
-        <View style={tw`flex flex-row gap-x-1`}>
-          <Text style={tw`font-c-semibold text-sm`}>4.5</Text>
-          <Text style={tw`font-c-normal text-sm text-[#9796A1]`}>(30+)</Text>
+    <SafeAreaView>
+      <ScrollView style={tw`px-6 pt-7 pb-8`}>
+        <Image
+          source={images.food.default}
+          style={tw`w-full h-[206px] rounded-[10px] mb-5`}
+        />
+        <Text style={tw`font-c-semibold text-[28px] leading-[32px] mb-3`}>
+          Ground Beef Tacos
+        </Text>
+        <View style={tw`flex flex-row gap-x-2 mb-4`}>
+          <Text>⭐️</Text>
+          <View style={tw`flex flex-row gap-x-1`}>
+            <Text style={tw`font-c-semibold text-sm`}>4.5</Text>
+            <Text style={tw`font-c-normal text-sm text-[#9796A1]`}>(30+)</Text>
+          </View>
+          <LinkButton title="See Review" classes="underline"></LinkButton>
         </View>
-        <LinkButton title="See Review" classes="underline"></LinkButton>
-      </View>
-      <View style={tw`flex-row justify-between items-center mb-5`}>
-        <View style={tw`flex-row items-end`}>
-          <Text style={tw`font-c-medium text-base text-primary-400 pb-[6px]`}>
-            $
-          </Text>
-          <Text style={tw`font-c-semibold text-2xl text-primary-400`}>
-            9.50
-          </Text>
+        <View style={tw`flex-row justify-between items-center mb-5`}>
+          <View style={tw`flex-row items-end`}>
+            <Text
+              style={tw`font-c-medium text-base text-primary-400 ios:pb-[6px] android:pb-[10px]`}>
+              $
+            </Text>
+            <Text style={tw`font-c-semibold text-2xl text-primary-400`}>
+              9.50
+            </Text>
+          </View>
+          <View style={tw`flex-row items-center gap-x-2`}>
+            <QuantityControlButton
+              isDisable={quantity <= 1}
+              activeIcon={icons.minusWhite}
+              inactiveIcon={icons.minus}
+              onPress={decreaseQuantiry}
+            />
+            <Text style={tw`font-semibold text-base`}>
+              {String(quantity).padStart(2, '0')}
+            </Text>
+            <QuantityControlButton
+              activeIcon={icons.plusWhite}
+              inactiveIcon={icons.plus}
+              onPress={increaseQuantity}
+            />
+          </View>
         </View>
-        <View style={tw`flex-row items-center gap-x-2`}>
-          <QuantityControlButton
-            isDisable={quantity <= 1}
-            activeIcon={images.icon.minusWhite}
-            inactiveIcon={images.icon.minus}
-            onPress={decreaseQuantiry}
-          />
-          <Text style={tw`font-semibold text-base`}>
-            {String(quantity).padStart(2, '0')}
-          </Text>
-          <QuantityControlButton
-            activeIcon={images.icon.plusWhite}
-            inactiveIcon={images.icon.plus}
-            onPress={increaseQuantity}
-          />
+        <Text style={tw`font-c-normal text-sm text-[#858992] mb-5`}>
+          Brown the beef better. Lean ground beef – I like to use 85% lean
+          angus. Garlic – use fresh chopped. Spices – chili powder, cumin, onion
+          powder.
+        </Text>
+        <Text style={tw`font-c-semibold text-[#323643] text-lg mb-2`}>
+          Choice of Add On
+        </Text>
+        <View style={tw`gap-y-2 mb-20`}>
+          {addonList.map(addon => (
+            <AddOnItem
+              {...addon}
+              key={addon.name}
+              onPress={e => ToggleAddOnItemHandler(e)}
+            />
+          ))}
         </View>
-      </View>
-      <Text style={tw`font-c-normal text-sm text-[#858992] mb-5`}>
-        Brown the beef better. Lean ground beef – I like to use 85% lean angus.
-        Garlic – use fresh chopped. Spices – chili powder, cumin, onion powder.
-      </Text>
-      <Text style={tw`font-c-semibold text-[#323643] text-lg mb-2`}>
-        Choice of Add On
-      </Text>
-      <View style={tw`gap-y-2`}>
-        {addonList.map(addon => (
-          <AddOnItem
-            {...addon}
-            key={addon.name}
-            onPress={e => ToggleAddOnItemHandler(e)}
-          />
-        ))}
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

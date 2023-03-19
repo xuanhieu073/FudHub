@@ -5,9 +5,10 @@ import {
   LinkButton,
   NavigationButton,
   PrimaryButton,
+  RadioButton,
 } from './button/Button';
 import CategoryItemMd from './CategoryItem/CategoryItemMd';
-import {DishItemLg} from './Dish/DishItemLg';
+import {FoodItemLg} from './Dish/FoodItemLg';
 import {Header} from './header/Header';
 import {NavigationBar} from './header/NavigationBar';
 import {Input} from './input/Input';
@@ -23,7 +24,7 @@ export {
   LinkButton,
   NavigationButton,
   IconButton,
-  DishItemLg,
+  FoodItemLg,
   RadioButton,
   CategoryItemMd,
   RestaurantItemMd,

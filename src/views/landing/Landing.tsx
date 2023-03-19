@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {images} from '../../assets';
+import {icons, images} from '../../assets';
 import {
   CategoryItemMd,
   IconButton,
@@ -21,11 +21,11 @@ import tw from '../../plugin/tailwind';
 export const Landing = () => {
   const navigation: any = useNavigation();
   const [categories, setCategories] = useState([
-    {name: 'Burger', isActive: true, image: images.icon.burger},
-    {name: 'Donat', isActive: false, image: images.icon.donat},
-    {name: 'Pizza', isActive: false, image: images.icon.pizza},
-    {name: 'Mexican', isActive: false, image: images.icon.mexican},
-    {name: 'Asian', isActive: false, image: images.icon.asian},
+    {name: 'Burger', isActive: true, image: icons.burger},
+    {name: 'Donat', isActive: false, image: icons.donat},
+    {name: 'Pizza', isActive: false, image: icons.pizza},
+    {name: 'Mexican', isActive: false, image: icons.mexican},
+    {name: 'Asian', isActive: false, image: icons.asian},
   ]);
 
   const [restaurants, setRestaurants] = useState([
@@ -37,7 +37,7 @@ export const Landing = () => {
     <SafeAreaView style={tw`bg-white`}>
       <ScrollView>
         <View style={tw`px-6 py-8 flex-row justify-between`}>
-          <NavigationButton icon={images.icon.menu} />
+          <NavigationButton icon={icons.menu} />
           <View style={tw`items-center`}>
             <Text style={tw`font-c-medium text-sm text-[#8C9099]`}>
               Deliver to
@@ -63,17 +63,13 @@ export const Landing = () => {
               borderWidth: 1,
               flexGrow: 1,
             })}>
-            <Image source={images.icon.search}></Image>
+            <Image source={icons.search}></Image>
             <TextInput
               numberOfLines={1}
               style={tw`ml-2 text-xs text-[#9AA0B4]`}
               placeholder="Find for food or restaurant..."></TextInput>
           </View>
-          <IconButton
-            icon={images.icon.switch}
-            shadow={true}
-            classes="w-12 ml-4"
-          />
+          <IconButton icon={icons.switch} shadow={true} classes="w-12 ml-4" />
         </View>
         <ScrollView horizontal={true}>
           <View style={tw`px-6 flex-row mb-7`}>
@@ -109,7 +105,7 @@ export const Landing = () => {
               <Text style={tw`font-c-normal text-sm text-primary-400`}>
                 View All
               </Text>
-              <Image source={images.icon.chevronRight}></Image>
+              <Image source={icons.chevronRight}></Image>
             </Pressable>
           </View>
         </View>

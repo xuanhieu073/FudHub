@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import {images} from '../../assets';
+import {icons, images} from '../../assets';
 import tw from '../../plugin/tailwind';
 
 type RestaurantItemMdProps = {
@@ -23,12 +23,12 @@ function RestaurantItemMd({
         <Text style={tw.style(`font-bold text-black`, {fontSize: 15})}>
           {restaurantName}
         </Text>
-        <Image style={tw`ml-1`} source={images.icon.checkGray}></Image>
+        <Image style={tw`ml-1`} source={icons.checkGray}></Image>
       </View>
       <View style={tw`flex-row items-center ml-3 mb-3`}>
-        <Image source={images.icon.deliverMoto}></Image>
+        <Image source={icons.deliverMoto}></Image>
         <Text style={tw`text-xs ml-1`}>Free delivery</Text>
-        <Image style={tw`ml-4`} source={images.icon.clock}></Image>
+        <Image style={tw`ml-4`} source={icons.clock}></Image>
         <Text style={tw`text-xs ml-1`}>10-15 mins</Text>
       </View>
       <View style={tw`flex-row ml-3 mb-3`}>

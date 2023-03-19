@@ -1,11 +1,14 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import {images} from '../../assets';
 import tw from '../../plugin/tailwind';
 
-export const DishItemLg = () => {
+type FoodItemLgProps = {
+  onPress?: (e: any) => any;
+};
+export const FoodItemLg = ({onPress}: FoodItemLgProps) => {
   return (
-    <View style={tw`rounded-2xl bg-white`}>
+    <Pressable style={tw`rounded-2xl bg-white`} onPress={onPress}>
       <Image
         source={images.food.chickenHawaii}
         style={tw`rounded-2xl w-full h-[165px]`}></Image>
@@ -17,6 +20,6 @@ export const DishItemLg = () => {
           Chicken, Cheese and pineapple
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 };

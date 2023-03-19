@@ -2,17 +2,17 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {images} from '../../assets';
-import {DishItemLg, IconButton, NavigationButton} from '../../components';
+import {icons, images} from '../../assets';
+import {FoodItemLg, IconButton, NavigationButton} from '../../components';
 import tw from '../../plugin/tailwind';
 
 export const Category = () => {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
   return (
     <SafeAreaView>
       <ScrollView style={tw`px-6 pt-9`}>
         <NavigationButton
-          icon={images.icon.chevronLeftBlack}
+          icon={icons.chevronLeftBlack}
           classes={'mb-9'}
           onPress={() => navigation.goBack()}
         />
@@ -33,17 +33,17 @@ export const Category = () => {
             </Text>
             <View style={tw`flex-row gap-x-1 items-center`}>
               <Text style={tw`font-c-medium text-primary-400`}>Popular</Text>
-              <Image source={images.icon.chevronDownGray}></Image>
+              <Image source={icons.chevronDownGray}></Image>
             </View>
           </View>
-          <IconButton icon={images.icon.switch} classes="bg-transparent" />
+          <IconButton icon={icons.switch} classes="bg-transparent" />
         </View>
         <View style={tw`gap-y-5 mb-14`}>
-          <DishItemLg />
-          <DishItemLg />
-          <DishItemLg />
-          <DishItemLg />
-          <DishItemLg />
+          <FoodItemLg onPress={() => navigation.navigate('FoodDetails', {})} />
+          <FoodItemLg />
+          <FoodItemLg />
+          <FoodItemLg />
+          <FoodItemLg />
         </View>
       </ScrollView>
     </SafeAreaView>

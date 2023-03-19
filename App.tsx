@@ -13,7 +13,7 @@ import {Image, SafeAreaView, View} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {images} from './src/assets';
 import {NavigationBar} from './src/components';
-import {Category, Login} from './src/views';
+import {Category, FoodDetails, Login} from './src/views';
 import Home from './src/views/home/Home';
 import {Signup} from './src/views/signup/Signup';
 
@@ -23,6 +23,7 @@ const StackNavigator = () => (
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Home" component={Home} />
     <Stack.Screen name="Category" component={Category} />
+    <Stack.Screen name="FoodDetails" component={FoodDetails} />
   </Stack.Navigator>
 );
 
