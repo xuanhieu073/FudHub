@@ -61,8 +61,8 @@ export const FoodDetails = () => {
         <Text style={tw`font-c-semibold text-[28px] leading-[32px] mb-3`}>
           Ground Beef Tacos
         </Text>
-        <View style={tw`flex flex-row gap-x-2 mb-4`}>
-          <Text>⭐️</Text>
+        <View style={tw`flex flex-row gap-x-2 mb-4 items-center`}>
+          <Image source={icons.star} style={tw`h-3 w-3`}></Image>
           <View style={tw`flex flex-row gap-x-1`}>
             <Text style={tw`font-c-semibold text-sm`}>4.5</Text>
             <Text style={tw`font-c-normal text-sm text-[#9796A1]`}>(30+)</Text>

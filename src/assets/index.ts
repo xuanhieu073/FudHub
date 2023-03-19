@@ -39,6 +39,7 @@ export const icons = {
   google: require('./icons/google.png'),
   heart: require('./icons/heart.png'),
   heartGray: require('./icons/heart-gray.png'),
+  heartWhite: require('./icons/heart-white.png'),
   menu: require('./icons/menu.png'),
   mexican: require('./icons/mexican.png'),
   minus: require('./icons/minus.png'),
@@ -50,4 +51,5 @@ export const icons = {
   plusWhite: require('./icons/plus-white.png'),
   search: require('./icons/search.png'),
   switch: require('./icons/switch.png'),
+  star: require('./icons/star.png'),
 };
