@@ -7,7 +7,6 @@ export const images = {
     switch: require('./images/switch-icon.png'),
     search: require('./images/search-icon.png'),
     checkGray: require('./images/check-gray-icon.png'),
-    arrowRight: require('./images/arrow-right-icon.png'),
     deliverMoto: require('./images/deliver-moto-icon.png'),
     clock: require('./images/clock-icon.png'),
     burger: require('./images/burger-icon.png'),
@@ -27,6 +26,9 @@ export const images = {
     bellGray: require('./images/bell-gray-icon.png'),
     orders: require('./images/orders-icon.png'),
     ordersGray: require('./images/orders-gray-icon.png'),
+    chevronLeftBlack: require('./icons/chevron-left-black.png'),
+    chevronRight: require('./icons/chevron-right.png'),
+    chevronDownGray: require('./icons/chevron-down-gray.png'),
   },
   illustration: {
     headerLeft: require('./images/header-illus-left.png'),

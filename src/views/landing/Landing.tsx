@@ -1,12 +1,25 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Text, Image, TextInput, ScrollView} from 'react-native';
-import tw from '../../plugin/tailwind';
-import {CategoryItemMd} from '../../components';
-import {RestaurantItemMd} from '../../components';
-import {images} from '../../assets';
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {images} from '../../assets';
+import {
+  CategoryItemMd,
+  IconButton,
+  NavigationButton,
+  RestaurantItemMd,
+} from '../../components';
+import tw from '../../plugin/tailwind';
 
 export const Landing = () => {
+  const navigation: any = useNavigation();
   const [categories, setCategories] = useState([
     {name: 'Burger', isActive: true, image: images.icon.burger},
     {name: 'Donat', isActive: false, image: images.icon.donat},
@@ -24,22 +37,7 @@ export const Landing = () => {
     <SafeAreaView style={tw`bg-white`}>
       <ScrollView>
         <View style={tw`px-6 py-8 flex-row justify-between`}>
-          <View
-            style={tw.style(
-              'items-center justify-center bg-white rounded-xl h-10 w-10',
-              {
-                shadowColor: '#A0A0A0',
-                shadowOffset: {
-                  width: 0,
-                  height: 12,
-                },
-                shadowOpacity: 0.5,
-                shadowRadius: 16.0,
-                elevation: 24,
-              },
-            )}>
-            <Image source={images.icon.menu}></Image>
-          </View>
+          <NavigationButton icon={images.icon.menu} />
           <View style={tw`items-center`}>
             <Text style={tw`font-c-medium text-sm text-[#8C9099]`}>
               Deliver to
@@ -71,22 +69,11 @@ export const Landing = () => {
               style={tw`ml-2 text-xs text-[#9AA0B4]`}
               placeholder="Find for food or restaurant..."></TextInput>
           </View>
-          <View
-            style={tw.style(
-              'items-center justify-center bg-white rounded-xl w-12 ml-4',
-              {
-                shadowColor: '#A0A0A0',
-                shadowOffset: {
-                  width: 0,
-                  height: 12,
-                },
-                shadowOpacity: 0.5,
-                shadowRadius: 16.0,
-                elevation: 24,
-              },
-            )}>
-            <Image source={images.icon.switch}></Image>
-          </View>
+          <IconButton
+            icon={images.icon.switch}
+            shadow={true}
+            classes="w-12 ml-4"
+          />
         </View>
         <ScrollView horizontal={true}>
           <View style={tw`px-6 flex-row mb-7`}>
@@ -116,6 +103,14 @@ export const Landing = () => {
               Featured Restaurants
             </Text>
             {/* <ViewMore viewMoreText="View All"></ViewMore> */}
+            <Pressable
+              style={tw`flex-row gap-x-1 items-center`}
+              onPress={() => navigation.navigate('Category', {})}>
+              <Text style={tw`font-c-normal text-sm text-primary-400`}>
+                View All
+              </Text>
+              <Image source={images.icon.chevronRight}></Image>
+            </Pressable>
           </View>
         </View>
         <ScrollView style={tw`mx-4`} horizontal={true}>

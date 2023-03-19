@@ -13,15 +13,16 @@ import {Image, SafeAreaView, View} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {images} from './src/assets';
 import {NavigationBar} from './src/components';
-import {Login} from './src/views';
+import {Category, Login} from './src/views';
 import Home from './src/views/home/Home';
 import {Signup} from './src/views/signup/Signup';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Login" component={Login} />
-    <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen name="Category" component={Category} />
   </Stack.Navigator>
 );
 

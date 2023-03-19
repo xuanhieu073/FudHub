@@ -88,3 +88,62 @@ export const LinkButton = ({
     </View>
   );
 };
+
+type NavigationButtonProps = {
+  icon: ImageSourcePropType;
+  classes?: string;
+  onPress?: () => any;
+};
+export const NavigationButton = ({
+  icon,
+  classes,
+  onPress,
+}: NavigationButtonProps) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={tw.style(
+        'items-center justify-center bg-white rounded-xl h-10 w-10',
+        classes,
+        {
+          shadowColor: '#A0A0A0',
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.5,
+          shadowRadius: 16.0,
+          elevation: 24,
+        },
+      )}>
+      <Image source={icon}></Image>
+    </Pressable>
+  );
+};
+
+type IconButton = {
+  icon: ImageSourcePropType;
+  shadow?: boolean;
+  classes?: string;
+};
+export const IconButton = ({icon, shadow, classes}: IconButton) => {
+  return (
+    <View
+      style={tw.style(
+        'items-center justify-center bg-white rounded-xl',
+        classes,
+        shadow && {
+          shadowColor: '#A0A0A0',
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.5,
+          shadowRadius: 16.0,
+          elevation: 24,
+        },
+      )}>
+      <Image source={icon}></Image>
+    </View>
+  );
+};
