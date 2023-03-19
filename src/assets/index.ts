@@ -27,6 +27,10 @@ export const images = {
     bellGray: require('./images/bell-gray-icon.png'),
     orders: require('./images/orders-icon.png'),
     ordersGray: require('./images/orders-gray-icon.png'),
+    plus: require('./icons/plus-red.png'),
+    plusWhite: require('./icons/plus-white.png'),
+    minus: require('./icons/minus-red.png'),
+    minusWhite: require('./icons/minus-white.png'),
   },
   illustration: {
     headerLeft: require('./images/header-illus-left.png'),
@@ -38,5 +42,8 @@ export const images = {
   food: {
     default: require('./images/default-food.png'),
     chickenHawaii: require('./images/chicken-hawaiian.png'),
+    pepperJuliened: require('./images/pepper-juliened.png'),
+    babySpinach: require('./images/baby-spinach.png'),
+    masroom: require('./images/masroom.png'),
   },
 };

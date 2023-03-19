@@ -1,5 +1,10 @@
 import {AuthorizeLayout} from './authorizeLayout/AuthorizeLayout';
-import {LightButton, LinkButton, PrimaryButton} from './button/Button';
+import {
+  LightButton,
+  LinkButton,
+  PrimaryButton,
+  RadioButton,
+} from './button/Button';
 import CategoryItemMd from './CategoryItem/CategoryItemMd';
 import {Header} from './header/Header';
 import {NavigationBar} from './header/NavigationBar';
@@ -13,6 +18,7 @@ export {
   PrimaryButton,
   LightButton,
   LinkButton,
+  RadioButton,
   AuthorizeLayout,
   CategoryItemMd,
   RestaurantItemMd,
