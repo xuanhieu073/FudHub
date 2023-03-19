@@ -8,7 +8,9 @@ type FoodItemLgProps = {
 };
 export const FoodItemLg = ({onPress}: FoodItemLgProps) => {
   return (
-    <Pressable style={tw`rounded-2xl bg-white`} onPress={onPress}>
+    <Pressable
+      style={tw`rounded-2xl bg-white shadow-2xl shadow-[#d3d1d8]`}
+      onPress={onPress}>
       <Image
         source={images.food.chickenHawaii}
         style={tw`rounded-2xl w-full h-[165px]`}></Image>

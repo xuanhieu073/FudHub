@@ -3,14 +3,22 @@ import React from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {icons, images} from '../../assets';
-import {FoodItemLg, IconButton, NavigationButton} from '../../components';
+import {
+  FoodItemLg,
+  IconButton,
+  MainLayout,
+  NavigationButton,
+} from '../../components';
 import tw from '../../plugin/tailwind';
 
 export const Category = () => {
   const navigation: any = useNavigation();
   return (
-    <SafeAreaView>
-      <ScrollView style={tw`px-6 pt-9`}>
+    <MainLayout>
+      <Image
+        style={tw`absolute right-0`}
+        source={images.illustration.categoryHero}></Image>
+      <View style={tw`px-6 pt-9`}>
         <NavigationButton
           icon={icons.chevronLeftBlack}
           classes={'mb-9'}
@@ -45,7 +53,7 @@ export const Category = () => {
           <FoodItemLg />
           <FoodItemLg />
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+    </MainLayout>
   );
 };

@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {icons, images} from '../../assets';
-import {LinkButton, RadioButton} from '../../components';
+import {LinkButton, QuantityInput, RadioButton} from '../../components';
 import tw from '../../plugin/tailwind';
 
 export const FoodDetails = () => {
@@ -79,22 +79,11 @@ export const FoodDetails = () => {
               9.50
             </Text>
           </View>
-          <View style={tw`flex-row items-center gap-x-2`}>
-            <QuantityControlButton
-              isDisable={quantity <= 1}
-              activeIcon={icons.minusWhite}
-              inactiveIcon={icons.minus}
-              onPress={decreaseQuantiry}
-            />
-            <Text style={tw`font-semibold text-base`}>
-              {String(quantity).padStart(2, '0')}
-            </Text>
-            <QuantityControlButton
-              activeIcon={icons.plusWhite}
-              inactiveIcon={icons.plus}
-              onPress={increaseQuantity}
-            />
-          </View>
+          <QuantityInput
+            quantity={quantity}
+            increaseQuantity={increaseQuantity}
+            decreaseQuantiry={decreaseQuantiry}
+          />
         </View>
         <Text style={tw`font-c-normal text-sm text-[#858992] mb-5`}>
           Brown the beef better. Lean ground beef – I like to use 85% lean
@@ -115,33 +104,6 @@ export const FoodDetails = () => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
-
-type QuantityControlButton = {
-  isDisable?: boolean;
-  activeIcon: any;
-  inactiveIcon: any;
-  onPress?: () => any;
-};
-
-const QuantityControlButton = ({
-  isDisable,
-  activeIcon,
-  inactiveIcon,
-  onPress,
-}: QuantityControlButton) => {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={tw.style(
-        'rounded-full w-7 h-7 items-center justify-center border border-primary-400',
-        {
-          'bg-primary-400': !isDisable,
-        },
-      )}>
-      <Image source={isDisable ? inactiveIcon : activeIcon} />
-    </Pressable>
   );
 };
 

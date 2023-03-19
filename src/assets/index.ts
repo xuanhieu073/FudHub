@@ -5,6 +5,7 @@ export const images = {
   illustration: {
     headerLeft: require('./images/header-illus-left.png'),
     headerRight: require('./images/header-illus-right.png'),
+    categoryHero: require('./images/category-hero.png'),
   },
   restaurants: {
     McDonal: require('./images/McDonal.png'),
