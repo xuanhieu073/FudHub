@@ -29,6 +29,10 @@ export const images = {
     chevronLeftBlack: require('./icons/chevron-left-black.png'),
     chevronRight: require('./icons/chevron-right.png'),
     chevronDownGray: require('./icons/chevron-down-gray.png'),
+    plus: require('./icons/plus-red.png'),
+    plusWhite: require('./icons/plus-white.png'),
+    minus: require('./icons/minus-red.png'),
+    minusWhite: require('./icons/minus-white.png'),
   },
   illustration: {
     headerLeft: require('./images/header-illus-left.png'),
@@ -40,5 +44,8 @@ export const images = {
   food: {
     default: require('./images/default-food.png'),
     chickenHawaii: require('./images/chicken-hawaiian.png'),
+    pepperJuliened: require('./images/pepper-juliened.png'),
+    babySpinach: require('./images/baby-spinach.png'),
+    masroom: require('./images/masroom.png'),
   },
 };

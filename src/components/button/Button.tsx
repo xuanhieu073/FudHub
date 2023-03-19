@@ -61,12 +61,14 @@ type LinkButtonProps = {
   title: string;
   prefixText?: string;
   suffixText?: string;
+  classes?: string;
 };
 
 export const LinkButton = ({
   title,
   prefixText,
   suffixText,
+  classes,
 }: LinkButtonProps) => {
   return (
     <View style={tw`flex flex-row gap-x-1 justify-center`}>
@@ -76,7 +78,11 @@ export const LinkButton = ({
         </Text>
       )}
       <Pressable>
-        <Text style={tw`text-[14px] text-primary-400 font-c-medium`}>
+        <Text
+          style={tw.style(
+            'text-[14px] text-primary-400 font-c-medium',
+            classes,
+          )}>
           {title}
         </Text>
       </Pressable>
@@ -144,6 +150,20 @@ export const IconButton = ({icon, shadow, classes}: IconButton) => {
         },
       )}>
       <Image source={icon}></Image>
+    </View>
+  );
+};
+
+type RadioButton = {
+  isSelected?: boolean;
+};
+export const RadioButton = ({isSelected}: RadioButton) => {
+  return (
+    <View
+      style={tw`w-5 h-5 rounded-full border border-primary-400 items-center justify-center`}>
+      {isSelected && (
+        <View style={tw`w-3 h-3 bg-primary-400 rounded-full`}></View>
+      )}
     </View>
   );
 };

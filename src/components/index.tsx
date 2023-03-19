@@ -24,6 +24,7 @@ export {
   NavigationButton,
   IconButton,
   DishItemLg,
+  RadioButton,
   CategoryItemMd,
   RestaurantItemMd,
 };
