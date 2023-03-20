@@ -19,7 +19,7 @@ function CategoryItemMd({
     <Pressable
       onPress={() => onPress!(CategoryName)}
       style={tw.style(
-        'rounded-full px-1 pt-1 pb-5 items-center overflow-hidden',
+        'rounded-full px-[5px] pt-[5px] pb-5 items-center overflow-hidden',
         {
           'bg-primary-400': isActive,
           'bg-white': !isActive,
@@ -36,20 +36,15 @@ function CategoryItemMd({
         },
       )}>
       <View
-        style={tw.style(
-          `bg-white mb-3 overflow-hidden`,
-          {'rounded-full': isActive},
-          {
-            width: 50,
-            height: 50,
-          },
-        )}>
+        style={tw.style(`bg-white mb-2 overflow-hidden w-[56px] h-[56px]`, {
+          'rounded-full': isActive,
+        })}>
         <Image
           style={tw.style('h-full w-full', {resizeMode: 'cover'})}
           source={imageCategory}></Image>
       </View>
       <Text
-        style={tw.style('text-white text-xs font-semibold', {
+        style={tw.style('text-white text-xs font-c-semibold', {
           'text-gray-500': !isActive,
         })}>
         {CategoryName || 'CatName'}

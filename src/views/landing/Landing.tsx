@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
+  Dimensions,
   Image,
   Pressable,
   ScrollView,
@@ -29,6 +30,12 @@ export const Landing = () => {
   ]);
 
   const [restaurants, setRestaurants] = useState([
+    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
+    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
+    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
+    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
+    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
+    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
     {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
     {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
   ]);
@@ -71,10 +78,14 @@ export const Landing = () => {
           </View>
           <IconButton icon={icons.switch} shadow={true} classes="w-12 ml-4" />
         </View>
-        <ScrollView horizontal={true}>
-          <View style={tw`px-6 flex-row mb-7`}>
+        <ScrollView
+          horizontal={true}
+          decelerationRate={0}
+          snapToInterval={56}
+          snapToAlignment={'start'}>
+          <View style={tw`mx-6 flex-row mb-7 gap-x-4`}>
             {categories.map((category, index) => (
-              <View key={index} style={tw.style({'ml-3': index !== 0})}>
+              <View key={index}>
                 <CategoryItemMd
                   CategoryName={category.name}
                   isActive={category.isActive}
@@ -109,10 +120,14 @@ export const Landing = () => {
             </Pressable>
           </View>
         </View>
-        <ScrollView style={tw`mx-4`} horizontal={true}>
-          <View style={tw`flex-row mx-2 mb-6`}>
+        <ScrollView
+          horizontal={true}
+          decelerationRate={0}
+          snapToInterval={266}
+          snapToAlignment={'start'}>
+          <View style={tw`flex-row gap-x-4 mx-6 mb-6`}>
             {restaurants.map((restaurant, index) => (
-              <View key={index} style={tw.style({'ml-3': index !== 0})}>
+              <View key={index}>
                 <RestaurantItemMd
                   restaurantName={restaurant.name}
                   categoryTags={restaurant.categoryTags}
