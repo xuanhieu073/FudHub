@@ -5,19 +5,24 @@ import tw from '../../plugin/tailwind';
 type ButtonProps = {
   title: string;
   classes?: string;
+  shadow?: boolean;
   onPress?: () => any;
 };
 
-export const PrimaryButton = ({title, classes, onPress}: ButtonProps) => {
+export const PrimaryButton = ({
+  title,
+  classes,
+  shadow,
+  onPress,
+}: ButtonProps) => {
   return (
     <Pressable
       onPress={onPress}
-      style={tw`${[
+      style={tw.style(
         'px-[75px] py-[25px] bg-primary-400 rounded-full items-center justify-center mx-auto',
+        shadow && 'shadow-2xl shadow-primary-200 rounded-full mx-auto',
         classes,
-      ]
-        .join(' ')
-        .trim()}`}>
+      )}>
       <Text
         style={tw.style('text-sm font-c-semibold text-white', {
           letterSpacing: 1.08,
@@ -31,21 +36,26 @@ export const PrimaryButton = ({title, classes, onPress}: ButtonProps) => {
 type LightButtonProps = {
   title: string;
   classes?: string;
+  shadow?: boolean;
   iconSrc?: ImageSourcePropType;
+  onPress?: () => any;
 };
 
-export const LightButton = ({title, classes, iconSrc}: LightButtonProps) => {
+export const LightButton = ({
+  title,
+  classes,
+  shadow,
+  iconSrc,
+  onPress,
+}: LightButtonProps) => {
   return (
     <Pressable
       style={tw.style(
-        [
-          'px-3 py-3 flex flex-row items-center justify-center gap-x-[10px] min-h-[57px]',
-          'shadow-[#A0A0A0] shadow-opacity-50 shadow-offset-[0px]/[12px] shadow-offset-2/3 bg-white rounded-full mx-auto',
-          classes,
-        ]
-          .join(' ')
-          .trim(),
-      )}>
+        'px-3 py-3 flex flex-row items-center justify-center gap-x-[10px] min-h-[57px]',
+        shadow && 'shadow-2xl shadow-[#A0A0A0] bg-white rounded-full mx-auto',
+        classes,
+      )}
+      onPress={onPress}>
       {iconSrc && <Image source={iconSrc}></Image>}
       <Text
         style={tw.style('text-sm font-c-semibold text-black', {

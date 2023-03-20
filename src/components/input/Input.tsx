@@ -48,11 +48,11 @@ export const Input = ({
 }: InputProps) => {
   const [innerPlaceholder, setInnerPlaceholder] = useState(placeholder || '');
   const [value, setValue] = useState('');
-  const debouncedValue = useDebounce(value, 100);
+  // const debouncedValue = useDebounce(value, 100);
 
-  useEffect(() => {
-    value ? setInnerPlaceholder('') : setInnerPlaceholder(placeholder || '');
-  }, [debouncedValue]);
+  // useEffect(() => {
+  //   value ? setInnerPlaceholder('') : setInnerPlaceholder(placeholder || '');
+  // }, [debouncedValue]);
 
   return (
     <View style={tw`flex flex-col gap-y-2`}>

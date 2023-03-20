@@ -1,6 +1,6 @@
 import {Category} from './category/Category';
 import {Notifications} from './notifications/Notifications';
-import {MyOders} from './myorders/MyOders';
+import {MyOrders} from './myorders/MyOrders';
 import {Favorites} from './favorites/Favorites';
 import {Cart} from './cart/Cart';
 import Home from './home/Home';
@@ -16,7 +16,7 @@ export {
   Home,
   Cart,
   Favorites,
-  MyOders,
+  MyOrders,
   Notifications,
   Category,
   FoodDetails,

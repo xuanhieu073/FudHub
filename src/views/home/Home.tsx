@@ -1,7 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {Image} from 'react-native';
-import {Cart, Favorites, Landing, MyOders, Notifications} from '..';
+import {Cart, Favorites, Landing, MyOrders, Notifications} from '..';
 import {icons, images} from '../../assets';
 
 const Tab = createBottomTabNavigator();
@@ -39,8 +39,8 @@ const TabNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="Notifications"
-      component={Notifications}
+      name="MyOrder"
+      component={MyOrders}
       options={{
         tabBarIcon: ({focused}) => (
           <Image source={focused ? icons.orders : icons.ordersGray} />

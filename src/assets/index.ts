@@ -52,4 +52,5 @@ export const icons = {
   search: require('./icons/search.png'),
   switch: require('./icons/switch.png'),
   star: require('./icons/star.png'),
+  starbuck: require('./icons/starbuck.png'),
 };
