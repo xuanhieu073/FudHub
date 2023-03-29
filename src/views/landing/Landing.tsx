@@ -1,7 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import React from 'react';
 import {
-  Dimensions,
   Image,
   Pressable,
   ScrollView,
@@ -10,35 +9,20 @@ import {
   View,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import {icons, images} from '../../assets';
-import {
-  CategoryItemMd,
-  IconButton,
-  NavigationButton,
-  RestaurantItemMd,
-} from '../../components';
+import {IconButton, NavigationButton, RestaurantItemMd} from '../../components';
 import tw from '../../plugin/tailwind';
+import {selectCategories} from '../../store/modules/categories/categorySelector';
+import {selectRestaurants} from '../../store/modules/categories/restaurantsSelector';
+import {LandingCategories} from './LandingCategories';
 
-export const Landing = () => {
+export function Landing() {
   const navigation: any = useNavigation();
-  const [categories, setCategories] = useState([
-    {name: 'Burger', isActive: true, image: icons.burger},
-    {name: 'Donat', isActive: false, image: icons.donat},
-    {name: 'Pizza', isActive: false, image: icons.pizza},
-    {name: 'Mexican', isActive: false, image: icons.mexican},
-    {name: 'Asian', isActive: false, image: icons.asian},
-  ]);
+  // const [categories, setCategories] = useState();
+  // const [restaurants, setRestaurants] = useState();
 
-  const [restaurants, setRestaurants] = useState([
-    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
-    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
-    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
-    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
-    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
-    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
-    {name: `McDonald's`, categoryTags: ['burger', 'chicken', 'fast food']},
-    {name: 'Starbuck', categoryTags: ['drink', 'fast food']},
-  ]);
+  const restaurants = useSelector(selectRestaurants);
 
   return (
     <SafeAreaView style={tw`bg-white`}>
@@ -78,32 +62,7 @@ export const Landing = () => {
           </View>
           <IconButton icon={icons.switch} shadow={true} classes="w-12 ml-4" />
         </View>
-        <ScrollView
-          horizontal={true}
-          decelerationRate={0}
-          snapToInterval={56}
-          snapToAlignment={'start'}>
-          <View style={tw`mx-6 flex-row mb-7 gap-x-4`}>
-            {categories.map((category, index) => (
-              <View key={index}>
-                <CategoryItemMd
-                  CategoryName={category.name}
-                  isActive={category.isActive}
-                  imageCategory={category.image}
-                  onPress={categoryName =>
-                    setCategories(
-                      categories.map(category =>
-                        category.name === categoryName
-                          ? {...category, isActive: true}
-                          : {...category, isActive: false},
-                      ),
-                    )
-                  }
-                />
-              </View>
-            ))}
-          </View>
-        </ScrollView>
+        <LandingCategories />
         <View style={tw`mt-1 mx-6`}>
           <View style={tw`flex-row justify-between mb-4`}>
             <Text style={tw`font-c-semibold text-lg text-[#323643]`}>
@@ -139,4 +98,4 @@ export const Landing = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}

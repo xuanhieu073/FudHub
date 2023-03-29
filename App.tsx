@@ -5,17 +5,14 @@
  * @format
  */
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {Image, SafeAreaView, View} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {images} from './src/assets';
-import {NavigationBar} from './src/components';
+import {Provider} from 'react-redux';
+import {store} from './src/store';
 import {Category, FoodDetails, Login} from './src/views';
 import Home from './src/views/home/Home';
-import {Signup} from './src/views/signup/Signup';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
@@ -29,11 +26,11 @@ const StackNavigator = () => (
 
 function App(): JSX.Element {
   return (
-    <SafeAreaProvider>
+    <Provider store={store}>
       <NavigationContainer>
         <StackNavigator />
       </NavigationContainer>
-    </SafeAreaProvider>
+    </Provider>
   );
 }
 export default App;

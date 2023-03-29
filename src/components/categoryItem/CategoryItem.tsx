@@ -1,23 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, Image, Pressable} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import tw from '../../plugin/tailwind';
+import {Category} from '../../store/modules/categories/categoryModel';
+import {selectCategory} from '../../store/modules/categories/categoriesSlice';
+import {selectActiveCategory} from '../../store/modules/categories/categorySelector';
 
 type CategoryItemMdProps = {
+  category: Category;
   isActive: boolean;
-  CategoryName: string;
-  imageCategory: any;
-  onPress?: (e: any) => any;
 };
 
-function CategoryItemMd({
-  isActive,
-  CategoryName,
-  imageCategory,
-  onPress,
-}: CategoryItemMdProps) {
+function CategoryItem({category, isActive}: CategoryItemMdProps) {
+  const dispatch = useDispatch();
+  const selectCategoryHandler = () => {
+    dispatch(selectCategory(category));
+  };
+
   return (
     <Pressable
-      onPress={() => onPress!(CategoryName)}
+      onPress={selectCategoryHandler}
       style={tw.style(
         'rounded-full px-[5px] pt-[5px] pb-5 items-center overflow-hidden',
         {
@@ -41,16 +43,17 @@ function CategoryItemMd({
         })}>
         <Image
           style={tw.style('h-full w-full', {resizeMode: 'cover'})}
-          source={imageCategory}></Image>
+          source={category.image}></Image>
       </View>
       <Text
         style={tw.style('text-white text-xs font-c-semibold', {
           'text-gray-500': !isActive,
         })}>
-        {CategoryName || 'CatName'}
+        {category.name || 'CatName'}
       </Text>
     </Pressable>
   );
 }
 
-export default CategoryItemMd;
+export default CategoryItem;
+export const CategoryItemMemo = React.memo(CategoryItem);

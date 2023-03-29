@@ -1,4 +1,3 @@
-import {AuthorizeLayout} from './layout/AuthorizeLayout';
 import {
   IconButton,
   LightButton,
@@ -7,23 +6,23 @@ import {
   PrimaryButton,
   RadioButton,
 } from './button/Button';
-import CategoryItemMd from './categoryItem/CategoryItemMd';
+import {SwitchButton} from './button/SwitchButton';
+import CategoryItem, {CategoryItemMemo} from './categoryItem/CategoryItem';
 import {FoodItemLg} from './foodItem/FoodItemLg';
+import {FoodItemMd} from './foodItem/FoodItemMd';
 import {Header} from './header/Header';
+import {MainHeader} from './header/MainHeader';
 import {NavigationBar} from './header/NavigationBar';
 import {Input} from './input/Input';
-import RestaurantItemMd from './restaurantItem/RestaurantItemMd';
-import {QuantityInput} from './quantityInput/QuantityInput';
-import {FoodItemMd} from './foodItem/FoodItemMd';
+import {AuthorizeLayout} from './layout/AuthorizeLayout';
 import {MainLayout} from './layout/MainLayout';
-import {MainHeader} from './header/MainHeader';
-import {SwitchButton} from './button/SwitchButton';
-import {OrderItemLg} from './orderItem/OrderItemLg';
-import {OrderItem} from './orderItem/OrderItem';
 import {BrandLogo} from './logo/BrandLogo';
+import {OrderItem} from './orderItem/OrderItem';
+import {OrderItemLg} from './orderItem/OrderItemLg';
+import {QuantityInput} from './quantityInput/QuantityInput';
+import RestaurantItemMd from './restaurantItem/RestaurantItemMd';
 
 export {
-  //Layouts
   MainLayout,
   AuthorizeLayout,
   //Atoms
@@ -43,7 +42,8 @@ export {
   FoodItemLg,
   FoodItemMd,
   RadioButton,
-  CategoryItemMd,
+  CategoryItem,
+  CategoryItemMemo,
   RestaurantItemMd,
   OrderItem,
   OrderItemLg,
